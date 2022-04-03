@@ -1,45 +1,28 @@
-git 01a - React Routes app setup
+git 01b - Class Component vs Functional Component
 
 GOALS
 
-Review and set up a template for the react-router project
+    Understand the differencee between functional components and class components
 
-PROJECT CREATION
+    functional vs class component comparison: https://www.twilio.com/blog/react-choose-functional-components when to use functional or component: https://dev.to/phanimurari/where-to-use-class-component-and-functional-component-1ed5
 
-meteor create react-routes --release 2.6.1
+    In class components, the render method will be called whenever the state of the components changes.
 
-cd react-router
-    meteor npm install react-router-dom@6.2.2 --save 
+    On the other hand, the Functional components render the UI based on the props.
 
-    meteor npm install (make sure all dependencies are in place)
+    When first learning - class Components should be preferred whenever we have the requirement with the state of the component.
 
-DELETE STUFF
+    More advanced - functional components can implement Hooks to use the state and other React features even without writing the Class Component
 
-    delete the following files:
-        imports/api/links.js
-        imports/ui/App.jsx
-        imports/ui/Hello.jsx
-        imports/ui/Info.jsx
+CHALLENGE
 
-    in client/main.js
-        delete import { App } from '/imports/ui/App';
-        create the following:
-            let placeholder = 'this is a placeholder';
-        update the render method to replace <App/> with placeholder
+    As found in client/main.jsx
 
-    in server/main.js
-        delete all code
+    Challenge 1, breakout the Signup component into its own file to do so: - inside of imports/ui - create the Signup.jsx - define the component and export as default - import and use it in client/main.jsx
 
-    delete the following file and directory
-        tests/main.js and the tests directory
+    Challenge 2, create a Link functional component to do so: - create imports/ui/Link.jsx - import Link into client/main.jsx - render Link (just replace in render)
 
-    in package.json delete the following lines of code:
-        "test": "meteor test --once --driver-package meteortesting:mocha",
-        "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
-        "testModule": "tests/main.js" (dont forget the comma on the previous line)
+Stop runaway node/mongo on windows
 
-
-Stop runaway mongo on windows
-
-taskkill /f /im mongod.exe
-taskkill /f /im node.exe
+    taskkill /f /im mongod.exe
+    taskkill /f /im node.exe
